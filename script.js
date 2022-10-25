@@ -86,20 +86,54 @@ const goleiro_sorteado = Math.floor(Math.random() * goleiro.length);
 const respostas = ['klose', 'italia']; 
 
 
-function verificar(){
-    var select1 = document.querySelector("#questao1");
-    var opcaoTexto = select1.options[select1.selectedIndex].text;
-    var opcaoValor = select1.options[select1.selectedIndex].value;
+function verificar(id, elemento, msgm){
+    var select = document.querySelector(id);
+    var opcaoValor = select.options[select.selectedIndex].value;
+    // var opcaoTexto = select1.options[select1.selectedIndex].text;
 
-    var msgm = document.getElementById('msgm1');
+    var msgm = document.querySelector(msgm);
 
-    if (opcaoValor == respostas[0]){
+    if (opcaoValor == respostas[elemento]){
 
         msgm.innerHTML = ' Parabéns, tu é brabo!<br> O card que você ganhou é <div>'+goleiro[goleiro_sorteado].foto+'</div> <br> Nome: '+goleiro[goleiro_sorteado].nome+'<br> Skills: '+goleiro[goleiro_sorteado].skills+'<br> Seleção: '+goleiro[goleiro_sorteado].selecao;
+        tocar_acerto();
+
     } else {
-        msgm.innerHTML = 'Cara, você é burro?'
+        msgm.innerHTML = 'Cara, você é burro?';
+        tocar_erro();
     }
 }
+
+function tocar_ucl(){
+
+    var audio = new Audio('Vinheta_Champions_www.toquesengracadosmp3.com.mp3');
+    audio.play();
+    audio.loop = true;
+    
+}
+
+function tocar_acerto(){
+    var audioAcerto = new Audio('taca-le pau nesse carrinho marcos.mp3');
+    audioAcerto.play();
+}
+
+function tocar_erro(){
+    var audioErro = new Audio('175959402.mp3');
+    audioErro.play();
+    
+
+    var audioErro2 = new Audio('é um fracassado.mp3');
+    audioErro2.play();
+    
+}
+
+document.getElementsByTagName('body').addEventListener('load', tocar_ucl());
+
+document.querySelector('#questao1').addEventListener('click', verificar());
+
+document.getElementById('questao2').addEventListener('click', verificar());
+
+
 
 // const select = document.querySelector('#questao1');
 

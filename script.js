@@ -471,7 +471,7 @@ const meio_campo2 = [
         nome: 'Everton Ribeiro',
         skills: 89,
         selecao: 'Argentina',
-        foto: '<img class="res" src="https://www.quadrodemedalhas.com/images/copa-do-mundo/argentina-angel-di-maria.jpg"  alt="">'
+        foto: '<img class="res" src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/e/eve/large/30590.png"  alt="">'
     },
 
     {
@@ -543,7 +543,7 @@ const atacante1 = [
         nome: 'Havertz',
         skills: 89,
         selecao: 'Alemanha',
-        foto: '<img class="res" src="https://static.wikia.nocookie.net/eli-soccer/images/8/8c/Kai-havertz.jpg/revision/latest?cb=20200105113727&path-prefix=de"  alt="">'
+        foto: '<img class="res" src="https://www.iol.pt/multimedia/oratvi/multimedia/imagem/id/5810e4460cf2e48931e74c49/1024"  alt="">'
     }
 ];
 
@@ -669,7 +669,7 @@ const atacante3 = [
         nome: 'Muller',
         skills: 90,
         selecao: 'Alemanha',
-        foto: '<img class="res" src="https://static.wikia.nocookie.net/futebol/images/1/18/Thomas_M%C3%BCller_01.jpg/revision/latest/scale-to-width-down/350?cb=20140616212127"  alt="">'
+        foto: '<img class="res" src="https://s.hs-data.com/bilder/spieler/gross/97332.jpg"  alt="">'
     }
 ];
 
@@ -713,6 +713,8 @@ function tocar_ucl(){
 function tocar_acerto(){
     var audioAcerto = new Audio('taca-le pau nesse carrinho marcos.mp3');
     audioAcerto.play();
+    var audioAcerto2 = new Audio('aplausos1.mp3');
+    audioAcerto2.play();
 }
 
 function tocar_erro(){
@@ -725,7 +727,60 @@ function tocar_erro(){
     
 }
 
+function printar_escalacao () {
+
+    var escalacao = document.getElementById('escalacao');
+    escalacao.innerHTML = '<h3 class="msgm">O seu time ficou assim:</h3> <br>'+goleiro[goleiro_sorteado].foto+'<br>'
+
+    +ltr_direito[ltr_direito_sorteado].foto+zagueiro1[zagueiro1_sorteado].foto+zagueiro2[zagueiro2_sorteado].foto+ltr_esquerdo[ltr_esquerdo_sorteado].foto+'<br>'
+
+    +volante[volante_sorteado].foto+meio_campo1[meio_campo1_sorteado].foto+meio_campo2[meio_campo2_sorteado].foto+'<br>'
+
+    +atacante1[atacante1_sorteado].foto+atacante2[atacante2_sorteado].foto+atacante3[atacante3_sorteado].foto;
+
+    var audioAcerto2 = new Audio('aplausos2.mp3');
+    audioAcerto2.play();
+}
+
+function printar_pontuacao(){
+
+    var soma_pontuacao = goleiro[goleiro_sorteado].skills + 
+                         ltr_direito[ltr_direito_sorteado].skills + 
+                         ltr_esquerdo[ltr_esquerdo_sorteado].skills + 
+                         zagueiro1[zagueiro1_sorteado].skills + 
+                         zagueiro2[zagueiro2_sorteado].skills + 
+                         volante[volante_sorteado].skills + 
+                         meio_campo1[meio_campo1_sorteado].skills + 
+                         meio_campo2[meio_campo2_sorteado].skills + 
+                         atacante1[atacante1_sorteado].skills +
+                         atacante2[atacante2_sorteado].skills + 
+                         atacante3[atacante3_sorteado].skills;
+                           
+
+    var pontuacao = document.getElementById("pontuacao");
+    pontuacao.innerHTML = `<p class='msgm'>A pontuação total do seu time é: ${soma_pontuacao} </p>`;
+}
+
 document.getElementsByTagName('body').addEventListener('load', tocar_ucl());
+
+document.getElementById('escalar-time').onclick = printar_pontuacao();
+
+
+
+if (window.screen.width < 768){
+    
+    document.getElementById('escalar-time').addEventListener('touchstart', printar_escalacao);
+    document.getElementById('pontuacao').addEventListener('touchstart', printar_pontuacao)
+} else {
+    
+    document.getElementById('escalar-time').addEventListener('click', printar_escalacao);
+    document.getElementById('pontuacao').addEventListener('click', printar_pontuacao);
+}
+
+
+
+
+
 
 // document.querySelector('#questao1').addEventListener('click', verificar());
 

@@ -30,7 +30,7 @@ body {
     background: linear-gradient(rgb(85, 161, 128), black);
     background-size: 2px;
     text-shadow: 1px 1px 1px black;
-    padding-left: 10px;
+    margin-bottom: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -49,7 +49,7 @@ body {
     font-size: 22px;
     background: linear-gradient(rgb(85, 161, 128), black);
     padding: 0px;
-    margin: 0px;
+    margin: 1px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
 }
@@ -94,7 +94,7 @@ body {
 .msgm {
     color: rgb(239, 239, 18);
     text-shadow: 1px 1px 1px black;
-    font-size: 20px;
+    font-size: 24px;
     background: linear-gradient(rgb(85, 161, 128), black);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
@@ -102,6 +102,66 @@ body {
 
 .res {
     width: 20%;
-    height: 20%;    
+    height: 500%;    
+}
+
+#escalar-time{
+    width: 60%;
+    height: 50%;
+    font-size: 40px;
+    background: linear-gradient(rgb(85, 161, 128), black);
+    color: rgb(239, 239, 18);
+    text-shadow: 1px 1px 1px black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    animation: escalar-time 2s linear infinite;
+}
+
+#escalar-time:hover{
+    cursor: pointer;
+    
+}
+
+#mostrar-pontuacao{
+
+    animation: mostrar-pontuacao 2s linear infinite;
+}
+
+#pontuacao {
+    
+    margin: 1px;
+}
+
+@keyframes mostrar-pontuacao {
+    
+    0%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
+@keyframes escalar-time {
+    
+    0%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+img {
+    animation: img 3s;
+}
+
+@keyframes img {
+    0%{
+        transform: scale(2);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 

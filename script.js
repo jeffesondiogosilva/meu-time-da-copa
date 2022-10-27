@@ -463,7 +463,7 @@ const meio_campo2 = [
         nome: 'Arrascaeta',
         skills: 90,
         selecao: 'Argentina',
-        foto: '<img class="res" src="https://www.quadrodemedalhas.com/images/copa-do-mundo/argentina-angel-di-maria.jpg"  alt="">'
+        foto: '<img class="res" src="https://tntsports.com.br/__export/1659206870735/sites/esporteinterativo/img/2022/07/30/gettyimages-1408549397.jpg_1423380640.jpg"  alt="">'
     },
 
     {
@@ -697,7 +697,7 @@ function verificar(id, elemento, msgm){
         tocar_acerto();
 
     } else {
-        msgm.innerHTML = 'Cara, você é burro? <br> <img class="res" src="https://i.pinimg.com/736x/d2/0c/e4/d20ce4a87940632a257d3a5b6ddd9b90--donkeys-dj.jpg">';
+        msgm.innerHTML = 'Que pena! <br> <img class="res" src="https://cdn.streamelements.com/uploads/174064b8-d948-4fbd-9898-a9800f1d3bb3.gif">';
         tocar_erro();
     }
 }
@@ -722,7 +722,7 @@ function tocar_erro(){
     audioErro.play();
     
 
-    var audioErro2 = new Audio('é um fracassado.mp3');
+    var audioErro2 = new Audio('faustao-errou.mp3');
     audioErro2.play();
     
 }
